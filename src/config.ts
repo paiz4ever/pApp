@@ -1,1 +1,3 @@
-export const APP_NAME = "时代小衣";
+export const AppInfo = {
+  name: "至尚"
+};
