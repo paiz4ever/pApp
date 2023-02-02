@@ -11,24 +11,7 @@ import { FC } from "react";
 import { AtTabBar } from "taro-ui";
 import Taro from "@tarojs/taro";
 import "taro-ui/dist/style/index.scss";
-import { TabItem } from "taro-ui/types/tab-bar";
-
-export const tabBarList: { tabStyle: TabItem; pagePath: string }[] = [
-  {
-    tabStyle: {
-      title: "首页",
-      iconType: "home"
-    },
-    pagePath: "pages/index/index"
-  },
-  {
-    tabStyle: {
-      title: "我的",
-      iconType: "user"
-    },
-    pagePath: "pages/user/index"
-  }
-];
+import { TabBarList } from "@/config";
 
 // TODO 使用redux
 let currentIdx = 0;
@@ -36,7 +19,7 @@ const TabBar: FC = () => {
   const switchBar = (idx: number) => {
     currentIdx = idx;
     Taro.switchTab({
-      url: "/" + tabBarList[idx].pagePath
+      url: "/" + TabBarList[idx].pagePath
     });
   };
 
@@ -45,7 +28,7 @@ const TabBar: FC = () => {
       fixed
       backgroundColor="#ffffff"
       selectedColor="#d43c33"
-      tabList={tabBarList.map((v) => v.tabStyle)}
+      tabList={TabBarList.map((v) => v.tabStyle)}
       onClick={(idx) => switchBar(idx)}
       current={currentIdx}
     />
