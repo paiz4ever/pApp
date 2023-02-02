@@ -12,12 +12,15 @@ import { AtTabBar } from "taro-ui";
 import Taro from "@tarojs/taro";
 import "taro-ui/dist/style/index.scss";
 import { TabBarList } from "@/config";
+import { connect } from "react-redux";
+import { switchTabBar } from "@/actions/tabbar.action";
 
-// TODO 使用redux
-let currentIdx = 0;
-const TabBar: FC = () => {
+const TabBar: FC<{
+  tabbar: number;
+  switchTabBar(idx: number): void;
+}> = ({ tabbar, switchTabBar }) => {
   const switchBar = (idx: number) => {
-    currentIdx = idx;
+    switchTabBar(idx);
     Taro.switchTab({
       url: "/" + TabBarList[idx].pagePath
     });
@@ -30,7 +33,7 @@ const TabBar: FC = () => {
       selectedColor="#d43c33"
       tabList={TabBarList.map((v) => v.tabStyle)}
       onClick={(idx) => switchBar(idx)}
-      current={currentIdx}
+      current={tabbar}
     />
   );
 };
@@ -40,4 +43,13 @@ const TabBar: FC = () => {
   addGlobalClass: true
 };
 
-export default TabBar;
+export default connect(
+  ({ tabbar }) => ({
+    tabbar
+  }),
+  (dispatch) => ({
+    switchTabBar(idx: number) {
+      dispatch(switchTabBar(idx));
+    }
+  })
+)(TabBar);
