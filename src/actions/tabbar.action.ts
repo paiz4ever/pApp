@@ -7,6 +7,8 @@ const ACTIONS = {
 type TabBarActionType = typeof ACTIONS;
 export default TabBarActionType;
 
+const _ = createAction<TabBarActionType>;
+
 export const switchTabBar = (idx: number) => {
-  return createAction<TabBarActionType>("SWITCH_TABBAR", idx);
+  return _("SWITCH_TABBAR", idx);
 };

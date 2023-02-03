@@ -1,3 +1,12 @@
+// 服务器地址
+export const BaseUrl = "http://localhost:8088";
+
+// qpp信息
+export const AppInfo = {
+  name: "至尚"
+};
+
+// 自定义底部导航
 export const TabBarList: {
   tabStyle: {
     title: string;
@@ -20,7 +29,3 @@ export const TabBarList: {
     pagePath: "pages/user/index"
   }
 ];
-
-export const AppInfo = {
-  name: "至尚"
-};

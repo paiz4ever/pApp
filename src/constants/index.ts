@@ -1,4 +1,4 @@
-export interface ActionType<T> {
-  type: keyof T;
-  payload: any;
+export enum HttpStatusCode {
+  SUCCESS = 200,
+  AUTH_EXPIRED = 301
 }
