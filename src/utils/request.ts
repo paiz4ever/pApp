@@ -38,10 +38,11 @@ export default class Request {
       this.interceptorsInited = true;
     }
     const { url } = param;
+    const apiUrl = BaseUrl + url;
     this.loading();
     let task = Taro.request({
       ...param,
-      url: BaseUrl + url,
+      url: apiUrl,
       method,
       data: {
         ...param.data,
@@ -65,11 +66,7 @@ export default class Request {
       })
       .catch((err) => {
         this.endLoading();
-        Taro.showToast({
-          title: `请求错误 ${err.statusCode && "状态: " + err.statusCode}`,
-          icon: "none",
-          duration: 2000
-        });
+        this.showError(err);
         // CONFUSED 返回一个pending状态的promise 这样外部就无需处理异常 但是否会导致内存泄漏
         // return new Promise(() => {});
         return Promise.reject(err);
@@ -97,5 +94,18 @@ export default class Request {
     // clearTimeout(this.loadingTimer);
     // this.loadingTimer = null;
     Taro.hideLoading();
+  }
+
+  private static showError({ statusCode, errMsg }) {
+    let title = "请求错误";
+    if (statusCode) {
+      title += "状态: " + statusCode
+    }
+    Taro.showToast({
+      title,
+      icon: "none",
+      duration: 2000
+    });
+    // TODO 日志上报 errMsg
   }
 }
