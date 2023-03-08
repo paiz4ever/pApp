@@ -5,7 +5,7 @@ import "./index.scss";
 
 const Index: FC = () => {
   return (
-    <View className="index">
+    <View>
       <Text>{AppInfo.name + "首页"}</Text>
     </View>
   );

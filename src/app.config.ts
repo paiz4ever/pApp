@@ -21,5 +21,14 @@ export default defineAppConfig({
     navigationBarBackgroundColor: "#fff",
     navigationBarTitleText: "WeChat",
     navigationBarTextStyle: "black"
-  }
+  }, 
+  lazyCodeLoading: "requiredComponents",
+  permission: {
+    "scope.userLocation": { 
+      "desc": "你的位置信息将用于..."
+    }
+  },
+  requiredPrivateInfos: [
+    "getLocation"
+  ]
 });

@@ -1,1 +1,1 @@
-export type LocalStoreKey = "";
+export type LocalStoreKey = "@OPENID" | "@TOKEN";

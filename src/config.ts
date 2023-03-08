@@ -1,5 +1,5 @@
 // 服务器地址
-export const BaseUrl = "http://localhost:8088";
+export const BaseUrl = "http://192.168.34.226:8088";
 
 // qpp信息
 export const AppInfo = {
