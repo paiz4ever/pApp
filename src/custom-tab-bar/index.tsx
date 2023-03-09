@@ -7,7 +7,7 @@
  * // NOTICE 所有的tab页在切换时不触发unMount操作 使用onHide
  */
 
-import { FC, useEffect, useRef } from "react";
+import { FC } from "react";
 import { AtTabBar } from "taro-ui";
 import Taro from "@tarojs/taro";
 import "taro-ui/dist/style/index.scss";
@@ -21,10 +21,6 @@ const TabBar: FC<{
   tabbar: number;
   switchTabBar(idx: number): void;
 }> = ({ tabbar, switchTabBar }) => {
-  // useEffect(() => {
-
-  // })
-
   const switchBar = (idx: number) => {
     switchTabBar(idx);
     Taro.switchTab({
@@ -57,5 +53,9 @@ export default connect(
     switchTabBar(idx: number) {
       dispatch(switchTabBar(idx));
     }
-  })
+  }),
+  null,
+  {
+    forwardRef: true
+  }
 )(TabBar);

@@ -1,10 +1,10 @@
 import { Text, Button, ScrollView, Input } from "@tarojs/components";
-import { AppInfo, BaseUrl } from "@/config";
+import { AppInfo } from "@/config";
 import "./index.scss";
 import { connect } from "react-redux";
 import { testNewArr } from "@/actions/user.action";
 import { FC, useRef, useState } from "react";
-import Request from "@/utils/request";
+import Request from "@/utils/common/request";
 import Taro from "@tarojs/taro";
 import LocalStore from "@/store/local.store";
 import { AtAvatar } from "taro-ui";

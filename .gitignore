@@ -5,5 +5,6 @@ deploy_versions/
 node_modules/
 .DS_Store
 .swc
-taro-learn.md
-todo.txt
+ISSUE.md
+USEFUL.md
+TODO.txt

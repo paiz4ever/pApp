@@ -1,11 +1,11 @@
-import { ActionType } from "@/interface";
+import { IActionType } from "@/interface/redux";
 import UserActionType from "@/actions/user.action";
 
 const initialState = {
   arr: [1, 2, 3]
 };
 
-const user = (state = initialState, action: ActionType<UserActionType>) => {
+const user = (state = initialState, action: IActionType<UserActionType>) => {
   switch (action.type) {
     case "TEST_CLEAN_ARR":
       return {

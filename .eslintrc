@@ -8,6 +8,8 @@
     "quotes": ["error", "double"],
     "react/sort-comp": "off",
     "react/no-unused-state": "off",
-    "@typescript-eslint/no-shadow": "off"
+    "@typescript-eslint/no-shadow": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "@typescript-eslint/no-unused-vars": "off"
   }
 }

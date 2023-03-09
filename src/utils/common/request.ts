@@ -3,7 +3,7 @@
  */
 
 import { BaseUrl } from "@/config";
-import { HttpStatusCode } from "@/constants";
+import { HttpStatusCode } from "@/constants/http";
 import { IRequestTask, IUploadTask } from "@/interface/redefine";
 import LocalStore from "@/store/local.store";
 import Taro from "@tarojs/taro";
