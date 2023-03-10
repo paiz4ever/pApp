@@ -15,16 +15,16 @@ export default defineAppConfig({
     })),
     custom: true
   },
-  pages: ["pages/index/index", "pages/user/index", "pages/test/index"],
+  pages: ["pages/login/index", "pages/index/index", "pages/user/index", "pages/test/index"],
   window: {
     backgroundTextStyle: "light",
     navigationBarBackgroundColor: "#fff",
     navigationBarTitleText: "WeChat",
     navigationBarTextStyle: "black"
-  }, 
+  },
   lazyCodeLoading: "requiredComponents",
   permission: {
-    "scope.userLocation": { 
+    "scope.userLocation": {
       "desc": "你的位置信息将用于..."
     }
   },

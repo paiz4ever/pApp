@@ -7,3 +7,8 @@ export type RP<T, RequireKeys extends keyof T = keyof T, PartialKeys extends key
     Pick<T, Exclude<keyof T, RequireKeys>>
     & ((Required<Pick<T, RequireKeys>> & Partial<Pick<T, PartialKeys>>)
         | ExcludeKeys<Pick<T, RequireKeys | PartialKeys>>)
+
+/**
+ * 去除接口属性
+ */
+export type MOmit<T, K extends keyof T> = Omit<T, K>

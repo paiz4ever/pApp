@@ -1,7 +1,7 @@
 import { FC, useEffect } from "react";
 import { View } from "@tarojs/components";
 import "./index.scss";
-import { hideMask } from "@/utils/ui/interaction";
+import MUI from "@/utils/ui/interaction";
 
 const Mask: FC<IMaskProps> = ({ autoHide }) => {
   useEffect(() => {
@@ -13,7 +13,7 @@ const Mask: FC<IMaskProps> = ({ autoHide }) => {
         }
       }
       setTimeout(() => {
-        hideMask();
+        MUI.hideMask();
       }, sec);
     }
   }, []);

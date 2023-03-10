@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { testNewArr } from "@/actions/user.action";
 import { FC, useRef, useState } from "react";
 import Request from "@/utils/common/request";
-import Taro from "@tarojs/taro";
+import Taro, { usePageScroll, usePullDownRefresh, useReachBottom } from "@tarojs/taro";
 import LocalStore from "@/store/local.store";
 import { AtAvatar } from "taro-ui";
 
@@ -42,7 +42,7 @@ const User: FC<{ testNewArr: () => void }> = ({ testNewArr }) => {
     );
   }
   return (
-    <ScrollView scrollY style={{ height: `${safeArea.height - 110}px` }}>
+    <ScrollView scrollY style={{ height: `${safeArea.height - 110}px` }} refresherEnabled>
       <Text>{AppInfo.name + "个人"}</Text>
       <Button
         style={{ width: "200px", height: "100px" }}
@@ -269,24 +269,28 @@ const User: FC<{ testNewArr: () => void }> = ({ testNewArr }) => {
         style={{ width: "200px", height: "100px" }}
         openType="chooseAvatar"
         onChooseAvatar={(e) => {
-          
           // console.log(e.detail);
           // setImage(e.detail.avatarUrl);
           // return;
-          let t=  Request.upload("/csm/upload", e.detail.avatarUrl, {
+          let t = Request.upload("/csm/upload", e.detail.avatarUrl, {
             aaa: {
               c: "888"
             },
             bbb: "bbb"
-          })
-          t.onProgressUpdate(r => {
-            console.log("==上传中==",r.progress, r.totalBytesExpectedToSend, r.totalBytesSent)
-          })
-          t.then(r => {
-            console.log("===上传成功==",r)
-          }).catch(e => {
-            console.log("===上传失败===",e)
-          })
+          });
+          t.onProgressUpdate((r) => {
+            console.log(
+              "==上传中==",
+              r.progress,
+              r.totalBytesExpectedToSend,
+              r.totalBytesSent
+            );
+          });
+          t.then((r) => {
+            console.log("===上传成功==", r);
+          }).catch((e) => {
+            console.log("===上传失败===", e);
+          });
         }}
         onError={(e) => {
           console.log("errr", e);
@@ -300,7 +304,6 @@ const User: FC<{ testNewArr: () => void }> = ({ testNewArr }) => {
         ref={ref}
         type="nickname"
         placeholder="请输入昵称"
-        focus
         onInput={(e) => {
           console.log("++++", e.detail);
           data.nickname = e.detail.value;

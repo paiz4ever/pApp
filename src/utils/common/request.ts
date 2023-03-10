@@ -4,11 +4,12 @@
 
 import { BaseUrl } from "@/config";
 import { HttpStatusCode } from "@/constants/http";
+import { MOmit } from "@/interface";
 import { IRequestTask, IUploadTask } from "@/interface/redefine";
 import LocalStore from "@/store/local.store";
 import Taro from "@tarojs/taro";
 
-type RequestParam = Omit<
+type RequestParam = MOmit<
   Taro.request.Option,
   "success" | "fail" | "complete" | "method"
 >;
@@ -58,7 +59,6 @@ export default class Request {
         if (res.statusCode !== HttpStatusCode.SUCCESS) {
           return Promise.reject(res);
         }
-        console.log(res)
         let data = JSON.parse(res.data) as IResponse;
         if (data.code !== HttpStatusCode.SUCCESS) {
           return Promise.reject({ statusCode: data.code, errMsg: data.message });
