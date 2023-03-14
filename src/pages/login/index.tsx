@@ -1,19 +1,14 @@
-import { FC, useEffect } from "react";
-import { View, Button } from "@tarojs/components";
+import { FC } from "react";
+import { Button } from "@tarojs/components";
 import "./index.scss";
 import { dynamRender } from "@/utils/ui/hoc";
 import MUI from "@/utils/ui/interaction";
-import Taro, { useDidShow, useLoad } from "@tarojs/taro";
+import Taro from "@tarojs/taro";
 import Request from "@/utils/common/request";
 import LocalStore from "@/store/local.store";
+import Bg from "@/components/common/bg";
 
 const Login: FC = () => {
-  useLoad(() => {});
-
-  useDidShow(() => {});
-
-  useEffect(() => {});
-
   const handleLogin = () => {
     Taro.login().then((r) => {
       Request.post("/csm/login", {
@@ -34,11 +29,11 @@ const Login: FC = () => {
   };
 
   return (
-    <View className="fl fx">
+    <Bg safety>
       <Button style={{ width: "100px", height: "50px" }} onClick={handleLogin}>
         登录
       </Button>
-    </View>
+    </Bg>
   );
 };
 

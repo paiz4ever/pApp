@@ -3,7 +3,11 @@ export const BaseUrl = "http://192.168.34.226:8088";
 
 // qpp信息
 export const AppInfo = {
-  name: "至尚"
+  name: "至尚",
+  theme: {
+    deepColor: "#997B60",
+    lightColor: "#C0A286"
+  }
 };
 
 // 自定义底部导航

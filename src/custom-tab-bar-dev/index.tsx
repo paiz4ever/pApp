@@ -1,5 +1,5 @@
 /**
- * 全局自定义tabbar
+ * 全局自定义tabbar（暂时去掉 样式不好看）
  * 存在众多细节 参照文档
  * https://docs.taro.zone/docs/custom-tabbar
  * https://github.com/NervJS/taro/issues/7302
@@ -8,14 +8,10 @@
  */
 
 import { FC } from "react";
-import { AtTabBar } from "taro-ui";
 import Taro from "@tarojs/taro";
-import "taro-ui/dist/style/index.scss";
 import { TabBarList } from "@/config";
 import { connect } from "react-redux";
 import { switchTabBar } from "@/actions/tabbar.action";
-
-
 
 const TabBar: FC<{
   tabbar: number;
@@ -28,16 +24,7 @@ const TabBar: FC<{
     });
   };
 
-  return (
-    <AtTabBar
-      fixed
-      backgroundColor="#ffffff"
-      selectedColor="#d43c33"
-      tabList={TabBarList.map((v) => v.tabStyle)}
-      onClick={(idx) => switchBar(idx)}
-      current={tabbar}
-    />
-  );
+  return null;
 };
 
 // NOTICE 自定义 TabBar 比较特殊，要编译为自定义组件给小程序调用。因此会有样式隔离。

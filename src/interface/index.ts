@@ -11,4 +11,6 @@ export type RP<T, RequireKeys extends keyof T = keyof T, PartialKeys extends key
 /**
  * 去除接口属性
  */
-export type MOmit<T, K extends keyof T> = Omit<T, K>
+export type MOmit<T, K extends keyof T> = Omit<T, K>;
+
+export type OneMore<T> = T | T[]; 

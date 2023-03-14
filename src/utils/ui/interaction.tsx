@@ -1,8 +1,6 @@
 import Mask, { IMaskProps } from "@/components/interaction/mask";
 import { MOmit } from "@/interface";
 import Taro from "@tarojs/taro";
-import { AtMessage, AtToast } from "taro-ui";
-import { AtToastProps } from "taro-ui/types/toast";
 import { getDRPage } from "./page";
 
 namespace MUI {
@@ -27,7 +25,7 @@ namespace MUI {
   /**
    * 显示提示框
    */
-  export const showToast = (props?: MOmit<AtToastProps, "isOpened">) => {
+  export const showToast = (props?: MOmit<{isOpened: boolean}, "isOpened">) => {
     return new Promise((resolve, reject) => {
       let page = getDRPage();
       if (!page) {
@@ -35,14 +33,15 @@ namespace MUI {
         return;
       }
       page._$DRHandler.renderOnFront(
-        <AtToast
-          isOpened
-          {...props}
-          onClose={() => {
-            page._$DRHandler.detachOnFront();
-            resolve(void 0);
-          }}
-        />
+        // <AtToast
+        //   isOpened
+        //   {...props}
+        //   onClose={() => {
+        //     page._$DRHandler.detachOnFront();
+        //     resolve(void 0);
+        //   }}
+        // />
+        null
       );
     });
   };
@@ -62,7 +61,7 @@ namespace MUI {
         reject();
         return;
       }
-      page._$DRHandler.renderOnFront(<AtMessage />).then(() => {
+      page._$DRHandler.renderOnFront(null).then(() => {
         // NOTICE 保证渲染之后才去执行 否则异常
         let { message, type, duration } = options;
         if (!duration) duration = 3000;

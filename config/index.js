@@ -11,7 +11,7 @@ const config = {
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
-  plugins: [],
+  plugins: ['@tarojs/plugin-html'],
   defineConstants: {
   },
   copy: {
@@ -30,7 +30,7 @@ const config = {
       pxtransform: {
         enable: true,
         config: {
-
+          selectorBlackList: ['nut-']
         }
       },
       url: {
@@ -47,6 +47,9 @@ const config = {
         }
       }
     },
+    miniCssExtractPluginOption: { 
+      ignoreOrder: true,
+    }
     // debugReact: true
   },
   h5: {
@@ -78,6 +81,9 @@ const config = {
   alias: {
     '@': path.resolve(__dirname, '..', 'src'),
   },
+  sass:{
+    data: '@import "@nutui/nutui-react-taro/dist/styles/variables.scss";'
+  }
 }
 
 export default function (merge) {

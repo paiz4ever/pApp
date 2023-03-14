@@ -1,10 +1,30 @@
-.fl {
+page,
+view,
+text {
+  font-family: "STXINWEI";
+}
+
+.pa {
+  position: absolute !important;
+}
+
+.fullw {
+  position: absolute;
+  width: 100%;
+}
+
+.fullh {
+  position: absolute;
+  height: 100%;
+}
+
+.full {
   position: absolute;
   width: 100%;
   height: 100%;
 }
 
-.fx {
+.flex {
   display: flex;
   justify-content: center;
   align-items: center;

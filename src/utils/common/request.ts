@@ -31,12 +31,14 @@ export default class Request {
   static get<T = any>(url: string) {
     return this.custom<T>({ url }, "GET");
   }
+
   /**
    * POST请求
    */
   static post<T = any>(url: string, data?: any) {
     return this.custom<T>({ url, data }, "POST");
   }
+
   /**
    * 上传
    */
@@ -74,7 +76,6 @@ export default class Request {
     ntask.onProgressUpdate = task.onProgressUpdate;
     return ntask;
   }
-
 
   /**
    * 自定义请求

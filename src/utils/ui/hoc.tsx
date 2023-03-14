@@ -1,7 +1,10 @@
+import { AppInfo } from "@/config";
+import { ConfigProvider } from "@nutui/nutui-react-taro";
 import { ComponentType, useEffect } from "react";
 import { useOnce, useRefreshAsync } from "../common/react.extension";
 import { DynamRenderHanlder } from "./hoc.h";
 import { getPage } from "./page";
+// import en from "@nutui/nutui-react-taro/dist/locales/en-US";
 
 // NOTICE 单独定义泛型 因为tsx会把<T>解析
 type HOCFunc = <T>(C: ComponentType<T>) => ComponentType<T>;
@@ -32,6 +35,27 @@ export const dynamRender: HOCFunc = (C) => {
         <C {...props}></C>
         {page._$DRHandler.getFrontNode()}
       </>
+    );
+  };
+};
+
+/**
+ * 自定义主题和语言
+ */
+export const custom: HOCFunc = (C) => {
+  let { deepColor } = AppInfo.theme;
+  return (props) => {
+    return (
+      <ConfigProvider
+        // locale={en}
+        theme={{
+          nutuiBrandColor: deepColor,
+          nutuiBrandColorStart: deepColor,
+          nutuiBrandColorEnd: deepColor
+        }}
+      >
+        <C {...props}></C>
+      </ConfigProvider>
     );
   };
 };

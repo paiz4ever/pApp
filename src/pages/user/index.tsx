@@ -7,7 +7,6 @@ import { FC, useRef, useState } from "react";
 import Request from "@/utils/common/request";
 import Taro, { usePageScroll, usePullDownRefresh, useReachBottom } from "@tarojs/taro";
 import LocalStore from "@/store/local.store";
-import { AtAvatar } from "taro-ui";
 
 const User: FC<{ testNewArr: () => void }> = ({ testNewArr }) => {
   let switchf = false;
@@ -35,35 +34,16 @@ const User: FC<{ testNewArr: () => void }> = ({ testNewArr }) => {
   let head;
   if (img) {
     head = (
-      <AtAvatar
-        customStyle={{ backgroundColor: "#000000" }}
-        text="花轰"
-      ></AtAvatar>
+      // <AtAvatar
+      //   customStyle={{ backgroundColor: "#000000" }}
+      //   text="花轰"
+      // ></AtAvatar>
+      null
     );
   }
   return (
     <ScrollView scrollY style={{ height: `${safeArea.height - 110}px` }} refresherEnabled>
       <Text>{AppInfo.name + "个人"}</Text>
-      <Button
-        style={{ width: "200px", height: "100px" }}
-        onClick={() => {
-          Taro.login().then((r) => {
-            console.log("登录", r);
-            Request.post("/csm/login", {
-              code: r.code
-            })
-              .then((r) => {
-                LocalStore.set("@OPENID", r.openid);
-                console.log("====", r);
-              })
-              .catch((e) => {
-                console.log("++++", e);
-              });
-          });
-        }}
-      >
-        登录测试按钮
-      </Button>
       <Button
         style={{ width: "200px", height: "100px" }}
         onClick={() => {

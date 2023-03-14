@@ -1,7 +1,7 @@
 import { createAction } from ".";
 
 const ACTIONS = {
-  // test
+  // TEMP
   TEST_CLEAN_ARR: "TEST_CLEAN_ARR",
   TEST_ADD_ARR: "TEST_ADD_ARR"
 };
