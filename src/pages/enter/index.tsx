@@ -9,6 +9,11 @@ import { custom } from "@/utils/ui/hoc";
 
 const Enter: FC = () => {
   const enter = () => {
+    Taro.reLaunch({
+      // url: "/pages/test/index"
+      url: "/pages/index/index"
+    });
+    return;
     Taro.checkSession()
       .then(() => {
         if (!LocalStore.get("@TOKEN")) {
@@ -31,7 +36,7 @@ const Enter: FC = () => {
   return (
     <Bg safety>
       <View className="pa title0 flex">
-        <Text className="pa title1">至尚</Text>
+        <Text className="pa title1">中国智造</Text>
         <Text className="pa title2">Welcome To ZHIS</Text>
       </View>
       <Text className="pa content">

@@ -1,4 +1,25 @@
+$deep-color: #997B60;
+$light-color: #C0A286;
+
 .search {
-    position: absolute;
-    top: 0px;
+  position: absolute;
+  top: 0px;
+}
+
+// NOTICE 这里大写防止被转换（searchBar固定50px不随尺寸变化）
+.scroller {
+  position: absolute;
+  top: 50Px;
+  height: calc(100% - 50Px);
+  width: 100%;
+}
+
+.title {
+  font-size: 30px;
+  color: #5F3636;
+}
+
+.popup {
+  --nutui-popup-border-radius: 40px;
+  background-color: $light-color;
 }

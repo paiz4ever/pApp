@@ -3,11 +3,13 @@ import path from "path";
 const config = {
   projectName: 'pApp',
   date: '2023-1-31',
-  designWidth: 750,
+  designWidth: 414,
   deviceRatio: {
     640: 2.34 / 2,
     750: 1,
-    828: 1.81 / 2
+    828: 1.81 / 2,
+    375: 2 / 1,
+    414: 750 / 414
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
