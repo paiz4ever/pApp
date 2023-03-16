@@ -3,10 +3,15 @@ import { StandardProps, View } from "@tarojs/components";
 import "./index.scss";
 import Taro from "@tarojs/taro";
 
-const SafeEmpty: FC<ISafeEmptyProps> = ({ style, className, ...other }) => {
+const SafeEmpty: FC<ISafeEmptyProps> = ({
+  offset,
+  style,
+  className,
+  ...other
+}) => {
   let width = (style as CSSProperties)?.width || "100%";
   let { statusBarHeight } = Taro.getWindowInfo();
-  let height = `${statusBarHeight}px`;
+  let height = `${Math.max(statusBarHeight - (offset || 0), 0)}px`;
 
   return (
     <View
@@ -21,6 +26,8 @@ const SafeEmpty: FC<ISafeEmptyProps> = ({ style, className, ...other }) => {
   );
 };
 
-export interface ISafeEmptyProps extends StandardProps {}
+export interface ISafeEmptyProps extends StandardProps {
+  offset?: number;
+}
 
 export default SafeEmpty;

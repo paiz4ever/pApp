@@ -1,0 +1,12 @@
+.cell-style {
+  --nutui-cell-background: rgba(153, 123, 96, 0.4);
+  --nutui-cell-desc-color: rgba(95, 54, 54, 0.48);
+  --nutui-cell-subtitle-color: rgba(95, 54, 54, 0.48);
+  --nutui-cell-color: #000000;
+  --nutui-cell-group-title-color: #ffffff;
+  font-weight: 700;
+}
+
+.group:first-child {
+    margin-top: 0px;
+}

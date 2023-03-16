@@ -103,7 +103,7 @@ const GoodsInfo: FC<IGoodsInfoProps> = ({ isShow, onClose }) => {
         </View>
       </Popup>
       <View>
-        {clickNum && (
+        {clickNum ? (
           <ImagePreview
             images={urls.map((v) => ({ src: v }))}
             initNo={clickNum}
@@ -115,7 +115,7 @@ const GoodsInfo: FC<IGoodsInfoProps> = ({ isShow, onClose }) => {
               setClickNum(0);
             }}
           />
-        )}
+        ) : null}
       </View>
     </View>
   );
